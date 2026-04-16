@@ -19,3 +19,7 @@ ENV/
 frontend/node_modules
 frontend/.env
 backend/.env
+frontend/dist
+frontend/dist.zip
+frontend/dist/index.html
+frontend/dist/assets/*

@@ -41,7 +41,7 @@ async def process_email(emailid: str):
         raise HTTPException(status_code=500, detail=f"Encoding error: {str(e)}")
     
     # Still update the DB for activity tracking
-    users_collection = db.get_users_collection()
+    users_collection = await db.get_users_collection()
     await users_collection.update_one(
         {"email": emailid},
         {"$set": {"last_active": datetime.utcnow()}},
@@ -69,7 +69,8 @@ async def verify_user(request: Request):
             return {"email": decoded_val, "role": "student"}
             
         # 2. Fallback: Check if it's an old-style random hash in the DB
-        user = await db.get_users_collection().find_one({"current_hash": decoded_val})
+        users_collection = await db.get_users_collection()
+        user = await users_collection.find_one({"current_hash": decoded_val})
         if user:
             return {"email": user["email"], "role": "student"}
             
@@ -113,7 +114,8 @@ async def get_student_grid(email: str = None):
     pipeline = [
         {"$group": {"_id": {"date": "$date", "slot_id": "$slot_id"}, "count": {"$sum": 1}}}
     ]
-    cursor = db.get_selections_collection().aggregate(pipeline)
+    selections_collection = await db.get_selections_collection()
+    cursor = selections_collection.aggregate(pipeline)
     usage_list = await cursor.to_list(length=1000)
     usage = {f"{r['_id']['date']}_{r['_id']['slot_id']}": r['count'] for r in usage_list}
 
@@ -135,7 +137,8 @@ async def get_student_grid(email: str = None):
     # If email provided, fetch existing selections from MongoDB
     user_selections = []
     if email:
-        cursor = db.get_selections_collection().find({"email": email}, {"_id": 0})
+        selections_collection = await db.get_selections_collection()
+        cursor = selections_collection.find({"email": email}, {"_id": 0})
         user_selections = await cursor.to_list(length=100)
     
     return {
@@ -162,24 +165,27 @@ async def submit_booking(request: Request):
         date_str = s.get("date")
         slot_id = s.get("slot_id")
         
-        # Count existing bookings for this specific slot (excluding current user's previous ones if we want, 
-        # but easier to just count total and verify)
-        count = await db.get_selections_collection().count_documents({"date": date_str, "slot_id": slot_id, "email": {"$ne": email}})
+        # Count existing bookings for this specific slot
+        selections_collection = await db.get_selections_collection()
+        count = await selections_collection.count_documents({"date": date_str, "slot_id": slot_id, "email": {"$ne": email}})
         max_cap = cap_lookup.get(date_str, {}).get(slot_id, 0)
         
         if count >= max_cap:
             raise HTTPException(status_code=409, detail=f"Slot {slot_id} on {date_str} is now at full capacity.")
     
     # Clear previous selections for this user and re-add
-    await db.get_selections_collection().delete_many({"email": email})
+    selections_collection = await db.get_selections_collection()
+    await selections_collection.delete_many({"email": email})
     if selections:
         for s in selections:
             s["email"] = email
-        await db.get_selections_collection().insert_many(selections)
+        await selections_collection.insert_many(selections)
         
     return {"status": "success"}
 
 if __name__ == "__main__":
     import uvicorn
-    # Default port for Cloud Run is 8080
-    uvicorn.run(app, host="0.0.0.0", port=8080)
+    import os
+    # Respect the PORT env var for Cloud Run, default to 8080 for local
+    port = int(os.getenv("PORT", 8080))
+    uvicorn.run(app, host="0.0.0.0", port=port)
