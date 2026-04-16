@@ -13,34 +13,33 @@ class Database:
 
     @classmethod
     async def connect_db(cls):
-        cls.client = AsyncIOMotorClient(MONGODB_URI)
-        cls.db = cls.client[DB_NAME]
-        print(f"Connected to MongoDB at {MONGODB_URI}")
+        if cls.client is None:
+            cls.client = AsyncIOMotorClient(MONGODB_URI)
+            cls.db = cls.client[DB_NAME]
+            print(f"Connected to MongoDB at {MONGODB_URI}")
 
     @classmethod
     async def close_db(cls):
         if cls.client:
             cls.client.close()
+            cls.client = None
+            cls.db = None
             print("Disconnected from MongoDB")
 
     @classmethod
-    def get_users_collection(cls):
-        return cls.db.users
+    async def get_db(cls):
+        if cls.client is None:
+            await cls.connect_db()
+        return cls.db
 
     @classmethod
-    def get_admins_collection(cls):
-        return cls.db.admins
+    async def get_users_collection(cls):
+        database = await cls.get_db()
+        return database.users
 
     @classmethod
-    def get_config_collection(cls):
-        return cls.db.config
-
-    @classmethod
-    def get_dates_collection(cls):
-        return cls.db.dates
-
-    @classmethod
-    def get_selections_collection(cls):
-        return cls.db.selections
+    async def get_selections_collection(cls):
+        database = await cls.get_db()
+        return database.selections
 
 db = Database()
