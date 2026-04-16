@@ -27,4 +27,20 @@ class Database:
     def get_users_collection(cls):
         return cls.db.users
 
+    @classmethod
+    def get_admins_collection(cls):
+        return cls.db.admins
+
+    @classmethod
+    def get_config_collection(cls):
+        return cls.db.config
+
+    @classmethod
+    def get_dates_collection(cls):
+        return cls.db.dates
+
+    @classmethod
+    def get_selections_collection(cls):
+        return cls.db.selections
+
 db = Database()

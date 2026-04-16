@@ -23,6 +23,14 @@ def encode_hexa(hexa_code: str) -> str:
     encoded_bytes = cipher_suite.encrypt(hexa_code.encode())
     return encoded_bytes.decode()
 
+def decode_hexa(encoded_code: str) -> str:
+    """Decode the hexa code using the unique secret with Fernet."""
+    if not cipher_suite:
+        raise ValueError("SECRET_KEY is not defined in environment variables.")
+    
+    decoded_bytes = cipher_suite.decrypt(encoded_code.encode())
+    return decoded_bytes.decode()
+
 def get_base_url() -> str:
     """Get the base URL from environment OR fallback to localhost."""
     return os.getenv("BASE_URL", "http://localhost:8080").rstrip("/")
