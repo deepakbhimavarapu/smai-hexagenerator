@@ -3,11 +3,11 @@
     "tasks": [
       {
         "name": "Data-Driven Problem Solving & Supervised Learning Basics",
-        "is_mandatory": true
+        "is_mandatory": false
       },
       {
         "name": "Representation & Feature Engineering",
-        "is_mandatory": true
+        "is_mandatory": false
       },
       {
         "name": "Supervised Learning & Linear Regression",
@@ -98,656 +98,97 @@
         "is_mandatory": false
       }
     ],
-    "max_tasks_to_select": 10
+    "max_tasks_to_select": 5
   },
   "dates": [
     {
-      "date": "2026-04-16",
+      "date": "2026-05-03",
       "slots": [
-        {
-          "id": "16_s1",
-          "start": "06:00",
-          "end": "07:30",
-          "capacity": 40
-        },
-        {
-          "id": "16_s2",
-          "start": "08:00",
-          "end": "09:30",
-          "capacity": 40
-        },
-        {
-          "id": "16_s3",
-          "start": "10:00",
-          "end": "11:30",
-          "capacity": 40
-        },
-        {
-          "id": "16_s4",
-          "start": "12:00",
-          "end": "13:30",
-          "capacity": 40
-        },
-        {
-          "id": "16_s5",
-          "start": "14:00",
-          "end": "15:30",
-          "capacity": 40
-        },
-        {
-          "id": "16_s6",
-          "start": "16:00",
-          "end": "17:30",
-          "capacity": 40
-        },
-        {
-          "id": "16_s7",
-          "start": "18:00",
-          "end": "19:30",
-          "capacity": 40
-        },
-        {
-          "id": "16_s8",
-          "start": "20:00",
-          "end": "21:30",
-          "capacity": 40
-        },
-        {
-          "id": "16_s9",
-          "start": "22:00",
-          "end": "23:30",
-          "capacity": 40
-        }
+        { "id": "03_s1", "start": "09:00", "end": "09:30", "capacity": 40 },
+        { "id": "03_s2", "start": "10:00", "end": "10:30", "capacity": 40 },
+        { "id": "03_s3", "start": "11:00", "end": "11:30", "capacity": 40 },
+        { "id": "03_s4", "start": "12:00", "end": "12:30", "capacity": 40 },
+        { "id": "03_s5", "start": "13:00", "end": "13:30", "capacity": 40 },
+        { "id": "03_s6", "start": "14:00", "end": "14:30", "capacity": 40 },
+        { "id": "03_s7", "start": "15:00", "end": "15:30", "capacity": 40 },
+        { "id": "03_s8", "start": "16:00", "end": "16:30", "capacity": 40 },
+        { "id": "03_s9", "start": "17:00", "end": "17:30", "capacity": 40 },
+        { "id": "03_s10", "start": "18:00", "end": "18:30", "capacity": 40 }
       ]
     },
     {
-      "date": "2026-04-17",
+      "date": "2026-05-04",
       "slots": [
-        {
-          "id": "17_s1",
-          "start": "06:00",
-          "end": "07:30",
-          "capacity": 40
-        },
-        {
-          "id": "17_s2",
-          "start": "08:00",
-          "end": "09:30",
-          "capacity": 40
-        },
-        {
-          "id": "17_s3",
-          "start": "10:00",
-          "end": "11:30",
-          "capacity": 40
-        },
-        {
-          "id": "17_s4",
-          "start": "12:00",
-          "end": "13:30",
-          "capacity": 40
-        },
-        {
-          "id": "17_s5",
-          "start": "14:00",
-          "end": "15:30",
-          "capacity": 40
-        },
-        {
-          "id": "17_s6",
-          "start": "16:00",
-          "end": "17:30",
-          "capacity": 40
-        },
-        {
-          "id": "17_s7",
-          "start": "18:00",
-          "end": "19:30",
-          "capacity": 40
-        },
-        {
-          "id": "17_s8",
-          "start": "20:00",
-          "end": "21:30",
-          "capacity": 40
-        },
-        {
-          "id": "17_s9",
-          "start": "22:00",
-          "end": "23:30",
-          "capacity": 40
-        }
+        { "id": "04_s1", "start": "09:00", "end": "09:30", "capacity": 40 },
+        { "id": "04_s2", "start": "10:00", "end": "10:30", "capacity": 40 },
+        { "id": "04_s3", "start": "11:00", "end": "11:30", "capacity": 40 },
+        { "id": "04_s4", "start": "12:00", "end": "12:30", "capacity": 40 },
+        { "id": "04_s5", "start": "13:00", "end": "13:30", "capacity": 40 },
+        { "id": "04_s6", "start": "14:00", "end": "14:30", "capacity": 40 },
+        { "id": "04_s7", "start": "15:00", "end": "15:30", "capacity": 40 },
+        { "id": "04_s8", "start": "16:00", "end": "16:30", "capacity": 40 },
+        { "id": "04_s9", "start": "17:00", "end": "17:30", "capacity": 40 },
+        { "id": "04_s10", "start": "18:00", "end": "18:30", "capacity": 40 }
       ]
     },
     {
-      "date": "2026-04-18",
+      "date": "2026-05-05",
       "slots": [
-        {
-          "id": "18_s1",
-          "start": "06:00",
-          "end": "07:30",
-          "capacity": 40
-        },
-        {
-          "id": "18_s2",
-          "start": "08:00",
-          "end": "09:30",
-          "capacity": 40
-        },
-        {
-          "id": "18_s3",
-          "start": "10:00",
-          "end": "11:30",
-          "capacity": 40
-        },
-        {
-          "id": "18_s4",
-          "start": "12:00",
-          "end": "13:30",
-          "capacity": 40
-        },
-        {
-          "id": "18_s5",
-          "start": "14:00",
-          "end": "15:30",
-          "capacity": 40
-        },
-        {
-          "id": "18_s6",
-          "start": "16:00",
-          "end": "17:30",
-          "capacity": 40
-        },
-        {
-          "id": "18_s7",
-          "start": "18:00",
-          "end": "19:30",
-          "capacity": 40
-        },
-        {
-          "id": "18_s8",
-          "start": "20:00",
-          "end": "21:30",
-          "capacity": 40
-        },
-        {
-          "id": "18_s9",
-          "start": "22:00",
-          "end": "23:30",
-          "capacity": 40
-        }
+        { "id": "05_s1", "start": "09:00", "end": "09:30", "capacity": 40 },
+        { "id": "05_s2", "start": "10:00", "end": "10:30", "capacity": 40 },
+        { "id": "05_s3", "start": "11:00", "end": "11:30", "capacity": 40 },
+        { "id": "05_s4", "start": "12:00", "end": "12:30", "capacity": 40 },
+        { "id": "05_s5", "start": "13:00", "end": "13:30", "capacity": 40 },
+        { "id": "05_s6", "start": "14:00", "end": "14:30", "capacity": 40 },
+        { "id": "05_s7", "start": "15:00", "end": "15:30", "capacity": 40 },
+        { "id": "05_s8", "start": "16:00", "end": "16:30", "capacity": 40 },
+        { "id": "05_s9", "start": "17:00", "end": "17:30", "capacity": 40 },
+        { "id": "05_s10", "start": "18:00", "end": "18:30", "capacity": 40 }
       ]
     },
     {
-      "date": "2026-04-19",
+      "date": "2026-05-06",
       "slots": [
-        {
-          "id": "19_s1",
-          "start": "06:00",
-          "end": "07:30",
-          "capacity": 40
-        },
-        {
-          "id": "19_s2",
-          "start": "08:00",
-          "end": "09:30",
-          "capacity": 40
-        },
-        {
-          "id": "19_s3",
-          "start": "10:00",
-          "end": "11:30",
-          "capacity": 40
-        },
-        {
-          "id": "19_s4",
-          "start": "12:00",
-          "end": "13:30",
-          "capacity": 40
-        },
-        {
-          "id": "19_s5",
-          "start": "14:00",
-          "end": "15:30",
-          "capacity": 40
-        },
-        {
-          "id": "19_s6",
-          "start": "16:00",
-          "end": "17:30",
-          "capacity": 40
-        },
-        {
-          "id": "19_s7",
-          "start": "18:00",
-          "end": "19:30",
-          "capacity": 40
-        },
-        {
-          "id": "19_s8",
-          "start": "20:00",
-          "end": "21:30",
-          "capacity": 40
-        },
-        {
-          "id": "19_s9",
-          "start": "22:00",
-          "end": "23:30",
-          "capacity": 40
-        }
+        { "id": "06_s1", "start": "09:00", "end": "09:30", "capacity": 40 },
+        { "id": "06_s2", "start": "10:00", "end": "10:30", "capacity": 40 },
+        { "id": "06_s3", "start": "11:00", "end": "11:30", "capacity": 40 },
+        { "id": "06_s4", "start": "12:00", "end": "12:30", "capacity": 40 },
+        { "id": "06_s5", "start": "13:00", "end": "13:30", "capacity": 40 },
+        { "id": "06_s6", "start": "14:00", "end": "14:30", "capacity": 40 },
+        { "id": "06_s7", "start": "15:00", "end": "15:30", "capacity": 40 },
+        { "id": "06_s8", "start": "16:00", "end": "16:30", "capacity": 40 },
+        { "id": "06_s9", "start": "17:00", "end": "17:30", "capacity": 40 },
+        { "id": "06_s10", "start": "18:00", "end": "18:30", "capacity": 40 }
       ]
     },
     {
-      "date": "2026-04-20",
+      "date": "2026-05-07",
       "slots": [
-        {
-          "id": "20_s1",
-          "start": "06:00",
-          "end": "07:30",
-          "capacity": 40
-        },
-        {
-          "id": "20_s2",
-          "start": "08:00",
-          "end": "09:30",
-          "capacity": 40
-        },
-        {
-          "id": "20_s3",
-          "start": "10:00",
-          "end": "11:30",
-          "capacity": 40
-        },
-        {
-          "id": "20_s4",
-          "start": "12:00",
-          "end": "13:30",
-          "capacity": 40
-        },
-        {
-          "id": "20_s5",
-          "start": "14:00",
-          "end": "15:30",
-          "capacity": 40
-        },
-        {
-          "id": "20_s6",
-          "start": "16:00",
-          "end": "17:30",
-          "capacity": 40
-        },
-        {
-          "id": "20_s7",
-          "start": "18:00",
-          "end": "19:30",
-          "capacity": 40
-        },
-        {
-          "id": "20_s8",
-          "start": "20:00",
-          "end": "21:30",
-          "capacity": 40
-        },
-        {
-          "id": "20_s9",
-          "start": "22:00",
-          "end": "23:30",
-          "capacity": 40
-        }
+        { "id": "07_s1", "start": "09:00", "end": "09:30", "capacity": 40 },
+        { "id": "07_s2", "start": "10:00", "end": "10:30", "capacity": 40 },
+        { "id": "07_s3", "start": "11:00", "end": "11:30", "capacity": 40 },
+        { "id": "07_s4", "start": "12:00", "end": "12:30", "capacity": 40 },
+        { "id": "07_s5", "start": "13:00", "end": "13:30", "capacity": 40 },
+        { "id": "07_s6", "start": "14:00", "end": "14:30", "capacity": 40 },
+        { "id": "07_s7", "start": "15:00", "end": "15:30", "capacity": 40 },
+        { "id": "07_s8", "start": "16:00", "end": "16:30", "capacity": 40 },
+        { "id": "07_s9", "start": "17:00", "end": "17:30", "capacity": 40 },
+        { "id": "07_s10", "start": "18:00", "end": "18:30", "capacity": 40 }
       ]
     },
     {
-      "date": "2026-04-21",
+      "date": "2026-05-08",
       "slots": [
-        {
-          "id": "21_s1",
-          "start": "06:00",
-          "end": "07:30",
-          "capacity": 40
-        },
-        {
-          "id": "21_s2",
-          "start": "08:00",
-          "end": "09:30",
-          "capacity": 40
-        },
-        {
-          "id": "21_s3",
-          "start": "10:00",
-          "end": "11:30",
-          "capacity": 40
-        },
-        {
-          "id": "21_s4",
-          "start": "12:00",
-          "end": "13:30",
-          "capacity": 40
-        },
-        {
-          "id": "21_s5",
-          "start": "14:00",
-          "end": "15:30",
-          "capacity": 40
-        },
-        {
-          "id": "21_s6",
-          "start": "16:00",
-          "end": "17:30",
-          "capacity": 40
-        },
-        {
-          "id": "21_s7",
-          "start": "18:00",
-          "end": "19:30",
-          "capacity": 40
-        },
-        {
-          "id": "21_s8",
-          "start": "20:00",
-          "end": "21:30",
-          "capacity": 40
-        },
-        {
-          "id": "21_s9",
-          "start": "22:00",
-          "end": "23:30",
-          "capacity": 40
-        }
-      ]
-    },
-    {
-      "date": "2026-04-22",
-      "slots": [
-        {
-          "id": "22_s1",
-          "start": "06:00",
-          "end": "07:30",
-          "capacity": 40
-        },
-        {
-          "id": "22_s2",
-          "start": "08:00",
-          "end": "09:30",
-          "capacity": 40
-        },
-        {
-          "id": "22_s3",
-          "start": "10:00",
-          "end": "11:30",
-          "capacity": 40
-        },
-        {
-          "id": "22_s4",
-          "start": "12:00",
-          "end": "13:30",
-          "capacity": 40
-        },
-        {
-          "id": "22_s5",
-          "start": "14:00",
-          "end": "15:30",
-          "capacity": 40
-        },
-        {
-          "id": "22_s6",
-          "start": "16:00",
-          "end": "17:30",
-          "capacity": 40
-        },
-        {
-          "id": "22_s7",
-          "start": "18:00",
-          "end": "19:30",
-          "capacity": 40
-        },
-        {
-          "id": "22_s8",
-          "start": "20:00",
-          "end": "21:30",
-          "capacity": 40
-        },
-        {
-          "id": "22_s9",
-          "start": "22:00",
-          "end": "23:30",
-          "capacity": 40
-        }
-      ]
-    },
-    {
-      "date": "2026-04-23",
-      "slots": [
-        {
-          "id": "23_s1",
-          "start": "06:00",
-          "end": "07:30",
-          "capacity": 40
-        },
-        {
-          "id": "23_s2",
-          "start": "08:00",
-          "end": "09:30",
-          "capacity": 40
-        },
-        {
-          "id": "23_s3",
-          "start": "10:00",
-          "end": "11:30",
-          "capacity": 40
-        },
-        {
-          "id": "23_s4",
-          "start": "12:00",
-          "end": "13:30",
-          "capacity": 40
-        },
-        {
-          "id": "23_s5",
-          "start": "14:00",
-          "end": "15:30",
-          "capacity": 40
-        },
-        {
-          "id": "23_s6",
-          "start": "16:00",
-          "end": "17:30",
-          "capacity": 40
-        },
-        {
-          "id": "23_s7",
-          "start": "18:00",
-          "end": "19:30",
-          "capacity": 40
-        },
-        {
-          "id": "23_s8",
-          "start": "20:00",
-          "end": "21:30",
-          "capacity": 40
-        },
-        {
-          "id": "23_s9",
-          "start": "22:00",
-          "end": "23:30",
-          "capacity": 40
-        }
-      ]
-    },
-    {
-      "date": "2026-04-24",
-      "slots": [
-        {
-          "id": "24_s1",
-          "start": "06:00",
-          "end": "07:30",
-          "capacity": 40
-        },
-        {
-          "id": "24_s2",
-          "start": "08:00",
-          "end": "09:30",
-          "capacity": 40
-        },
-        {
-          "id": "24_s3",
-          "start": "10:00",
-          "end": "11:30",
-          "capacity": 40
-        },
-        {
-          "id": "24_s4",
-          "start": "12:00",
-          "end": "13:30",
-          "capacity": 40
-        },
-        {
-          "id": "24_s5",
-          "start": "14:00",
-          "end": "15:30",
-          "capacity": 40
-        },
-        {
-          "id": "24_s6",
-          "start": "16:00",
-          "end": "17:30",
-          "capacity": 40
-        },
-        {
-          "id": "24_s7",
-          "start": "18:00",
-          "end": "19:30",
-          "capacity": 40
-        },
-        {
-          "id": "24_s8",
-          "start": "20:00",
-          "end": "21:30",
-          "capacity": 40
-        },
-        {
-          "id": "24_s9",
-          "start": "22:00",
-          "end": "23:30",
-          "capacity": 40
-        }
-      ]
-    },
-    {
-      "date": "2026-04-25",
-      "slots": [
-        {
-          "id": "25_s1",
-          "start": "06:00",
-          "end": "07:30",
-          "capacity": 40
-        },
-        {
-          "id": "25_s2",
-          "start": "08:00",
-          "end": "09:30",
-          "capacity": 40
-        },
-        {
-          "id": "25_s3",
-          "start": "10:00",
-          "end": "11:30",
-          "capacity": 40
-        },
-        {
-          "id": "25_s4",
-          "start": "12:00",
-          "end": "13:30",
-          "capacity": 40
-        },
-        {
-          "id": "25_s5",
-          "start": "14:00",
-          "end": "15:30",
-          "capacity": 40
-        },
-        {
-          "id": "25_s6",
-          "start": "16:00",
-          "end": "17:30",
-          "capacity": 40
-        },
-        {
-          "id": "25_s7",
-          "start": "18:00",
-          "end": "19:30",
-          "capacity": 40
-        },
-        {
-          "id": "25_s8",
-          "start": "20:00",
-          "end": "21:30",
-          "capacity": 40
-        },
-        {
-          "id": "25_s9",
-          "start": "22:00",
-          "end": "23:30",
-          "capacity": 40
-        }
-      ]
-    },
-    {
-      "date": "2026-04-26",
-      "slots": [
-        {
-          "id": "26_s1",
-          "start": "06:00",
-          "end": "07:30",
-          "capacity": 40
-        },
-        {
-          "id": "26_s2",
-          "start": "08:00",
-          "end": "09:30",
-          "capacity": 40
-        },
-        {
-          "id": "26_s3",
-          "start": "10:00",
-          "end": "11:30",
-          "capacity": 40
-        },
-        {
-          "id": "26_s4",
-          "start": "12:00",
-          "end": "13:30",
-          "capacity": 40
-        },
-        {
-          "id": "26_s5",
-          "start": "14:00",
-          "end": "15:30",
-          "capacity": 40
-        },
-        {
-          "id": "26_s6",
-          "start": "16:00",
-          "end": "17:30",
-          "capacity": 40
-        },
-        {
-          "id": "26_s7",
-          "start": "18:00",
-          "end": "19:30",
-          "capacity": 40
-        },
-        {
-          "id": "26_s8",
-          "start": "20:00",
-          "end": "21:30",
-          "capacity": 40
-        },
-        {
-          "id": "26_s9",
-          "start": "22:00",
-          "end": "23:30",
-          "capacity": 40
-        }
+        { "id": "08_s1", "start": "09:00", "end": "09:30", "capacity": 40 },
+        { "id": "08_s2", "start": "10:00", "end": "10:30", "capacity": 40 },
+        { "id": "08_s3", "start": "11:00", "end": "11:30", "capacity": 40 },
+        { "id": "08_s4", "start": "12:00", "end": "12:30", "capacity": 40 },
+        { "id": "08_s5", "start": "13:00", "end": "13:30", "capacity": 40 },
+        { "id": "08_s6", "start": "14:00", "end": "14:30", "capacity": 40 },
+        { "id": "08_s7", "start": "15:00", "end": "15:30", "capacity": 40 },
+        { "id": "08_s8", "start": "16:00", "end": "16:30", "capacity": 40 },
+        { "id": "08_s9", "start": "17:00", "end": "17:30", "capacity": 40 },
+        { "id": "08_s10", "start": "18:00", "end": "18:30", "capacity": 40 }
       ]
     }
   ]

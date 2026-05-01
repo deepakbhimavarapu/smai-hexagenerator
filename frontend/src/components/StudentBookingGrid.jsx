@@ -50,6 +50,13 @@ export default function StudentBookingGrid({ user }) {
 
   const handleDateSelect = (taskName, dateStr) => {
     if (isLocked) return;
+    
+    const isNewSelection = !selections[taskName]?.date;
+    if (dateStr && isNewSelection && totalSelected >= maxTasks) {
+      alert(`You can only select up to ${maxTasks} tasks.`);
+      return;
+    }
+
     const newSelections = { ...selections };
     if (!dateStr) {
       delete newSelections[taskName];
@@ -65,6 +72,12 @@ export default function StudentBookingGrid({ user }) {
     if (!currentSelection) return;
 
     if (slotId) {
+      const isNewTaskBeingFinalized = !currentSelection.slot_id;
+      if (isNewTaskBeingFinalized && totalSelected >= maxTasks) {
+        alert(`You can only select up to ${maxTasks} tasks.`);
+        return;
+      }
+
       const isAlreadyUsed = Object.entries(selections).some(([tName, details]) => 
         tName !== taskName && details.date === currentSelection.date && details.slot_id === slotId
       );
