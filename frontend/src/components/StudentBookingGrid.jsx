@@ -9,10 +9,11 @@ import {
   Lock,
   Clock,
   CalendarDays,
-  Target
+  Target,
+  Trash2
 } from 'lucide-react'
 
-export default function StudentBookingGrid({ user }) {
+export default function StudentBookingGrid({ user, isFinalized, onFinalize }) {
   const [tasks, setTasks] = useState([]);
   const [dates, setDates] = useState([]);
   const [maxTasks, setMaxTasks] = useState(0);
@@ -20,7 +21,11 @@ export default function StudentBookingGrid({ user }) {
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [isLocked, setIsLocked] = useState(false);
+  const [isLocked, setIsLocked] = useState(isFinalized);
+
+  useEffect(() => {
+    setIsLocked(isFinalized);
+  }, [isFinalized]);
 
   useEffect(() => {
     fetchData();
@@ -98,6 +103,11 @@ export default function StudentBookingGrid({ user }) {
     if (!isTargetMet || isLocked) return;
     setSubmitting(true);
     try {
+      // Finalize preference if not done
+      if (!isFinalized) {
+        await onFinalize();
+      }
+
       const payload = Object.entries(selections)
         .filter(([_, details]) => details.slot_id)
         .map(([task_name, details]) => ({
@@ -225,7 +235,17 @@ export default function StudentBookingGrid({ user }) {
                       </select>
                    </div>
                    
-                   <ChevronRight size={14} className={`text-gray-200 transition-all ${isDone ? 'text-indigo-400 translate-x-1' : ''}`} />
+                   {isDone && !isLocked ? (
+                     <button 
+                        onClick={() => handleDateSelect(task.name, '')}
+                        className="p-1.5 text-gray-300 hover:text-red-500 hover:bg-red-50 rounded-md transition-all ml-2"
+                        title="Clear selection"
+                     >
+                        <Trash2 size={14} />
+                     </button>
+                   ) : (
+                     <ChevronRight size={14} className={`text-gray-200 transition-all ${isDone ? 'text-indigo-400 translate-x-1' : ''}`} />
+                   )}
                 </div>
               </motion.div>
             );
@@ -234,18 +254,23 @@ export default function StudentBookingGrid({ user }) {
 
       {/* Persistence Hub */}
       <AnimatePresence>
-        {!isLocked && totalSelected > 0 && (
-          <motion.div initial={{ y: 50 }} animate={{ y: 0 }} exit={{ y: 50 }} className="fixed bottom-0 left-0 right-0 p-8 flex justify-center z-50">
+        {!isLocked && totalSelected === maxTasks && (
+          <motion.div initial={{ y: 50 }} animate={{ y: 0 }} exit={{ y: 50 }} className="fixed bottom-0 left-0 right-0 p-8 flex flex-col items-center z-50 bg-white/80 backdrop-blur-md border-t border-gray-100">
              <button 
                 onClick={handleSubmit}
                 disabled={submitting || !isTargetMet}
                 className={`
-                  px-20 py-4 rounded-2xl font-black text-xs uppercase tracking-[.25em] shadow-2xl transition-all
+                  px-20 py-4 rounded-2xl font-black text-xs uppercase tracking-[.25em] shadow-2xl transition-all mb-4
                   ${!isTargetMet ? 'bg-gray-100 text-gray-400 cursor-not-allowed' : 'bg-indigo-600 text-white hover:bg-indigo-700 hover:-translate-y-1'}
                 `}
               >
                 {submitting ? 'Transmitting...' : 'Commit Configuration'}
               </button>
+              <div className="flex items-center gap-2 px-4 py-2 bg-amber-50 rounded-xl border border-amber-100">
+                <p className="text-[10px] font-black text-amber-600 uppercase tracking-widest">
+                  ⚠️ This decision is final and cannot be modified after submission.
+                </p>
+              </div>
           </motion.div>
         )}
       </AnimatePresence>

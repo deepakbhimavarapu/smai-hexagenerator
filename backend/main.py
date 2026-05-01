@@ -134,17 +134,26 @@ async def get_student_grid(email: str = None):
             remaining = total_cap - booked_count
             s_obj["capacity"] = max(0, remaining)
             
-    # If email provided, fetch existing selections from MongoDB
+    # If email provided, fetch existing selections and preference from MongoDB
     user_selections = []
+    preference = None
     if email:
+        # Get selections
         selections_collection = await db.get_selections_collection()
         cursor = selections_collection.find({"email": email}, {"_id": 0})
         user_selections = await cursor.to_list(length=100)
+        
+        # Get preference
+        users_collection = await db.get_users_collection()
+        user_data = await users_collection.find_one({"email": email})
+        if user_data:
+            preference = user_data.get("preference")
     
     return {
         "config": config_data.get("config"),
         "dates": dates_list,
-        "selections": user_selections
+        "selections": user_selections,
+        "preference": preference
     }
 
 @app.post("/api/student/book")
@@ -181,6 +190,29 @@ async def submit_booking(request: Request):
             s["email"] = email
         await selections_collection.insert_many(selections)
         
+    return {"status": "success"}
+
+@app.post("/api/student/preference")
+async def set_preference(request: Request):
+    data = await request.json()
+    email = data.get("email")
+    preference = data.get("preference") # "exam" or "oral"
+    
+    if not email or preference not in ["exam", "oral"]:
+        raise HTTPException(status_code=400, detail="Invalid request.")
+
+    users_collection = await db.get_users_collection()
+    await users_collection.update_one(
+        {"email": email},
+        {"$set": {"preference": preference}},
+        upsert=True
+    )
+    
+    # If they switch to exam, clear their previous oral defense bookings
+    if preference == "exam":
+        selections_collection = await db.get_selections_collection()
+        await selections_collection.delete_many({"email": email})
+
     return {"status": "success"}
 
 if __name__ == "__main__":
