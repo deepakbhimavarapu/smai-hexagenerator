@@ -185,9 +185,21 @@ async def submit_booking(request: Request):
     # Clear previous selections for this user and re-add
     selections_collection = await db.get_selections_collection()
     await selections_collection.delete_many({"email": email})
+    
     if selections:
+        # Build a lookup for slot timings
+        timing_lookup = {d["date"]: {s["id"]: (s["start"], s["end"]) for s in d["slots"]} for d in config_data["dates"]}
+        
         for s in selections:
             s["email"] = email
+            # Lookup and inject timings
+            date_str = s.get("date")
+            slot_id = s.get("slot_id")
+            times = timing_lookup.get(date_str, {}).get(slot_id)
+            if times:
+                s["start"] = times[0]
+                s["end"] = times[1]
+                
         await selections_collection.insert_many(selections)
         
     return {"status": "success"}
